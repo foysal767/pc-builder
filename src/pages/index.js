@@ -1,10 +1,11 @@
+import Banner from "@/components/Layout/Banner";
 import RootLayout from "@/components/Layout/RootLayout";
 import React from "react";
 
 const HomePage = () => {
   return (
     <div>
-      <h1>Hello world!</h1>
+      <Banner></Banner>
     </div>
   );
 };

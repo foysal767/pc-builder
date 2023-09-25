@@ -62,14 +62,16 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Build PC</a>
+        <a className="btn btn-ghost normal-case text-xl font-bold border-white border-2 hover:border-black">
+          PCBuildCraft
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
           <li tabIndex={0}>
             <details>
               <summary>Category</summary>
-              <ul className="p-2 space-y-1">
+              <ul className="p-2 space-y-1 z-[1]">
                 <li className="bg-sky-400 rounded-md hover:bg-sky-200">
                   <a>CPU/Processor</a>
                 </li>
@@ -106,7 +108,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end  flex justify-between">
-        <button className="btn mx-auto bg-black text-white font-bold hover:bg-white hover:text-black">
+        <button className="btn mx-auto bg-black text-white font-bold hover:bg-white hover:text-black hover:border-black border-2">
           PC BUILDER
         </button>
         <div className="dropdown dropdown-end">
