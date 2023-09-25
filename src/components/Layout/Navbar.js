@@ -2,7 +2,7 @@ import Image from "next/image";
 import avater from "../../assets/images/avatar.png";
 const Navbar = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-sky-500">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -53,7 +53,7 @@ const Navbar = () => {
           </li>
           <li tabIndex={0}>
             <details>
-              <summary>Parent</summary>
+              <summary>Category</summary>
               <ul className="p-2">
                 <li>
                   <a>Submenu 1</a>
@@ -69,7 +69,8 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="dropdown dropdown-end">
+      <div className="navbar-end dropdown dropdown-end flex justify-between">
+        <button className="btn mx-auto">PC BUILDER</button>
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
           <div className="w-10 rounded-full">
             <Image
