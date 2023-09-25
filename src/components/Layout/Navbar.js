@@ -26,21 +26,39 @@ const Navbar = () => {
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
+              <a>Category</a>
+              <ul className="p-2 space-y-1">
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>CPU/Processor</a>
                 </li>
-                <li>
-                  <a>Submenu 2</a>
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>Motherboard</a>
+                </li>
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>RAM</a>
+                </li>
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>Power Supply Unit</a>
+                </li>
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>Storage Device</a>
+                </li>
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>Monitor</a>
+                </li>
+                <li className="bg-sky-400 rounded-md hover:bg-base-200">
+                  <a>Others</a>
                 </li>
               </ul>
             </li>
             <li>
-              <a>Item 3</a>
+              <a>Login</a>
+            </li>
+            <li>
+              <a>Sign Up</a>
+            </li>
+            <li>
+              <a>Log Out</a>
             </li>
           </ul>
         </div>
@@ -48,56 +66,72 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
           <li tabIndex={0}>
             <details>
               <summary>Category</summary>
-              <ul className="p-2">
-                <li>
-                  <a>Submenu 1</a>
+              <ul className="p-2 space-y-1">
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>CPU/Processor</a>
                 </li>
-                <li>
-                  <a>Submenu 2</a>
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>Motherboard</a>
+                </li>
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>RAM</a>
+                </li>
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>Power Supply Unit</a>
+                </li>
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>Storage Device</a>
+                </li>
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>Monitor</a>
+                </li>
+                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
+                  <a>Others</a>
                 </li>
               </ul>
             </details>
           </li>
           <li>
-            <a>Item 3</a>
+            <a>Login</a>
+          </li>
+          <li>
+            <a>Sign Up</a>
+          </li>
+          <li>
+            <a>Log Out</a>
           </li>
         </ul>
       </div>
-      <div className="navbar-end dropdown dropdown-end flex justify-between">
-        <button className="btn mx-auto">PC BUILDER</button>
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            <Image
-              src={avater}
-              width={700}
-              alt="avatar"
-              className="flex m-50"
-            />
-          </div>
-        </label>
-        <ul
-          tabIndex={0}
-          className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
-        >
-          <li>
-            <a className="justify-between">
-              Profile
-              <span className="badge">New</span>
-            </a>
-          </li>
-          <li>
-            <a>Settings</a>
-          </li>
-          <li>
-            <a>Logout</a>
-          </li>
-        </ul>
+      <div className="navbar-end  flex justify-between">
+        <button className="btn mx-auto bg-black text-white font-bold hover:bg-white hover:text-black">
+          PC BUILDER
+        </button>
+        <div className="dropdown dropdown-end">
+          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+            <div className="w-10 rounded-full">
+              <Image
+                src={avater}
+                width={700}
+                alt="avatar"
+                className="flex m-50"
+              />
+            </div>
+          </label>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-32"
+          >
+            <li>
+              <a>Profile</a>
+            </li>
+            <li>
+              <a>Logout</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   );
