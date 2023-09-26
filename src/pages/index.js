@@ -1,11 +1,13 @@
-import Banner from "@/components/Layout/Banner";
+import Banner from "@/components/UI/Banner";
 import RootLayout from "@/components/Layout/RootLayout";
 import React from "react";
+import Featured from "@/components/UI/Featured";
 
 const HomePage = () => {
   return (
     <div>
       <Banner></Banner>
+      <Featured></Featured>
     </div>
   );
 };
