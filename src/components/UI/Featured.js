@@ -1,113 +1,38 @@
 import Image from "next/image";
 import React from "react";
 
-const Featured = () => {
+const Featured = ({ featured }) => {
+  console.log(featured, "Featured data from UI components");
   return (
     <div className="my-20">
-      <h1 className="text-4xl font-bold my-8 text-center">FEATURED PRODUCTS</h1>
+      <h1 className="text-4xl font-bold my-12 text-center">
+        FEATURED PRODUCTS
+      </h1>
       <div className="grid grid-cols-3 gap-8">
-        <div className="card bg-base-100 shadow-xl">
-          <figure>
-            <Image
-              src="https://m.media-amazon.com/images/I/71aY+mfIxiL._AC_UF1000,1000_QL80_.jpg"
-              alt="Shoes"
-              width={500}
-              height={200}
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
+        {featured.map((feature) => (
+          <div key={feature.id} className="card bg-base-100 shadow-xl h-[80vh]">
+            <figure className="h-[40%]">
+              <Image
+                src={feature.image}
+                alt={feature.name}
+                width={500}
+                height={200}
+              />
+            </figure>
+            <div className=" space-y-2">
+              <h2 className="card-title ms-4 my-6">{feature.name}</h2>
+              <p className="ms-4 my-6">Category: {feature.category}</p>
+              <p className="ms-4 my-6">Price: {feature.price}</p>
+              <p className="ms-4 my-6">Status: {feature.status}</p>
+              <p className="ms-4 my-6">Rating: {feature.rating}</p>
+              <div className="card-actions justify-center">
+                <button className="btn bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 mb-4">
+                  View Details
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="card bg-base-100 shadow-xl">
-          <figure>
-            <Image
-              src="https://m.media-amazon.com/images/I/71aY+mfIxiL._AC_UF1000,1000_QL80_.jpg"
-              alt="Shoes"
-              width={500}
-              height={200}
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-        <div className="card bg-base-100 shadow-xl">
-          <figure>
-            <Image
-              src="https://m.media-amazon.com/images/I/71aY+mfIxiL._AC_UF1000,1000_QL80_.jpg"
-              alt="Shoes"
-              width={500}
-              height={200}
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-        <div className="card bg-base-100 shadow-xl">
-          <figure>
-            <Image
-              src="https://m.media-amazon.com/images/I/71aY+mfIxiL._AC_UF1000,1000_QL80_.jpg"
-              alt="Shoes"
-              width={500}
-              height={200}
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-        <div className="card bg-base-100 shadow-xl">
-          <figure>
-            <Image
-              src="https://m.media-amazon.com/images/I/71aY+mfIxiL._AC_UF1000,1000_QL80_.jpg"
-              alt="Shoes"
-              width={500}
-              height={200}
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
-        <div className="card bg-base-100 shadow-xl">
-          <figure>
-            <Image
-              src="https://m.media-amazon.com/images/I/71aY+mfIxiL._AC_UF1000,1000_QL80_.jpg"
-              alt="Shoes"
-              width={500}
-              height={200}
-            />
-          </figure>
-          <div className="card-body">
-            <h2 className="card-title">Shoes!</h2>
-            <p>If a dog chews shoes whose shoes does he choose?</p>
-            <div className="card-actions justify-end">
-              <button className="btn btn-primary">Buy Now</button>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );
