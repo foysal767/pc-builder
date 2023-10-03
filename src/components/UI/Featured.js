@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 const Featured = ({ featured }) => {
-  console.log(featured, "Featured data from UI components");
   return (
     <div className="my-20">
       <h1 className="text-4xl font-bold my-12 text-center">
