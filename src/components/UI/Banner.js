@@ -1,5 +1,6 @@
 import Image from "next/image";
 import heroImage from "../../assets/images/hero.png";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -17,9 +18,11 @@ const Banner = () => {
             compatibility, and stay within budget. Your unique, high-performance
             rig starts here.
           </p>
-          <button className="btn bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 mb-4">
-            Get Started
-          </button>
+          <Link href="">
+            <button className="btn bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 mb-4">
+              Get Started
+            </button>
+          </Link>
         </div>
       </div>
     </div>

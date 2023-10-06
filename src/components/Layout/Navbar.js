@@ -1,5 +1,6 @@
 import Image from "next/image";
 import avater from "../../assets/images/avatar.png";
+import Link from "next/link";
 const Navbar = () => {
   return (
     <div className="navbar bg-sky-500">
@@ -62,9 +63,11 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl font-bold border-white border-2 hover:border-black">
-          PCBuildCraft
-        </a>
+        <Link href="/">
+          <button className="btn btn-ghost normal-case text-xl font-bold border-white border-2 hover:border-black">
+            PCBuildCraft
+          </button>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -108,9 +111,11 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end  flex justify-between">
-        <button className="btn mx-auto bg-black text-white font-bold hover:bg-white hover:text-black hover:border-black border-2">
-          PC BUILDER
-        </button>
+        <Link href="/pcBuilder/pcBuilder">
+          <button className="btn mx-auto bg-black text-white font-bold hover:bg-white hover:text-black hover:border-black border-2">
+            PC BUILDER
+          </button>
+        </Link>
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">

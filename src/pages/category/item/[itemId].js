@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import RootLayout from "@/components/Layout/RootLayout";
 
 const ProductDetails = ({ product }) => {
@@ -79,7 +80,7 @@ const ProductDetails = ({ product }) => {
           </li>
         </ul>
         <div className="card-actions">
-          <button className="btn btn-primary">Buy Now</button>
+          <button className="btn btn-primary">Add to Build</button>
         </div>
       </div>
     </div>

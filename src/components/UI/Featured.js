@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Featured = ({ featured }) => {
@@ -25,9 +26,11 @@ const Featured = ({ featured }) => {
               <p className="ms-4 my-6">Status: {feature.status}</p>
               <p className="ms-4 my-6">Rating: {feature.rating}</p>
               <div className="card-actions justify-center">
-                <button className="btn bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 mb-4">
-                  View Details
-                </button>
+                <Link href={`category/item/${feature?.id}`}>
+                  <button className="btn bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 mb-4">
+                    View Details
+                  </button>
+                </Link>
               </div>
             </div>
           </div>

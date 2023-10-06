@@ -11,10 +11,11 @@ const Category = ({ categories }) => {
       <div className=" grid grid-cols-3 gap-12 mb-12">
         {sixCategories?.map((category) => (
           <>
-            <div className="w-80 rounded-md text-xl bg-sky-400 mx-auto p-6 border-2 border-black justify-center text-center hover:bg-white">
-              <Link href={``}>
-                <button className="w-full" onClick={() => handleClick("CPU")}>
-                  {category?.category}
+            <div className="w-80 rounded-md border-2 border-black text-center py-6">
+              <h1 className="text-2xl font-bold mb-6">{category?.category}</h1>
+              <Link href={`/category/${category?.categoryId}`}>
+                <button className="w-1/2 rounded-md text-xl bg-sky-400 mx-auto p-2 border border-black justify-center text-center hover:bg-black hover:text-white">
+                  Choose/Select
                 </button>
               </Link>
             </div>
