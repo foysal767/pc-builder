@@ -8,9 +8,16 @@ const CategoryProducts = ({ category }) => {
   const { products } = category;
   const [addProduct] = useAddPcBuilderProductMutation();
   const handleAddProduct = async (product) => {
-    const result = await addProduct(product);
-    console.log(result, "add product for pc builder");
-    console.log(product, "product for pc builder");
+    try {
+      const result = await addProduct(product);
+      if (result.error) {
+        alert("This product is already added!");
+      } else {
+        alert("This product is added successfully!");
+      }
+    } catch (error) {
+      console.error(error, "Error adding products!");
+    }
   };
   return (
     <div className="my-20">
