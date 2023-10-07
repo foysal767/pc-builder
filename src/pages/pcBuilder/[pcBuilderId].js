@@ -1,10 +1,17 @@
 import RootLayout from "@/components/Layout/RootLayout";
+import { useAddPcBuilderProductMutation } from "@/redux/features/products/productsApi";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const CategoryProducts = ({ category }) => {
   const { products } = category;
+  const [addProduct] = useAddPcBuilderProductMutation();
+  const handleAddProduct = async (product) => {
+    const result = await addProduct(product);
+    console.log(result, "add product for pc builder");
+    console.log(product, "product for pc builder");
+  };
   return (
     <div className="my-20">
       <h1 className="text-4xl font-bold my-12 text-center">
@@ -30,11 +37,12 @@ const CategoryProducts = ({ category }) => {
                     View Details
                   </button>
                 </Link>
-                <Link href={`item/${product?.id}`}>
-                  <button className="btn bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 mb-4">
-                    Add to Build
-                  </button>
-                </Link>
+                <button
+                  className="btn bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 mb-4"
+                  onClick={() => handleAddProduct(product)}
+                >
+                  Add to Build
+                </button>
               </div>
             </div>
           </div>
@@ -53,13 +61,10 @@ CategoryProducts.getLayout = function getLayout(page) {
 export const getStaticPaths = async () => {
   const res = await fetch("http://localhost:5000/categories");
   const allCategories = await res.json();
-  console.log(allCategories, "all categories");
   const categories = allCategories.slice(0, 6);
-  console.log(categories, "categories from pcBuilder paths");
   const paths = categories?.map((category) => ({
     params: { pcBuilderId: category?.categoryId.toString() },
   }));
-  console.log(paths, "paths");
   return { paths, fallback: false };
 };
 
