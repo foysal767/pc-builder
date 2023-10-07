@@ -1,6 +1,14 @@
+import { useGetAllProductsQuery } from "@/redux/features/products/productsApi";
+import { allProducts } from "@/redux/features/products/productsSlice";
 import Link from "next/link";
+import { useDispatch } from "react-redux";
 
 const Category = ({ categories }) => {
+  const dispatch = useDispatch();
+  const { data } = useGetAllProductsQuery(undefined);
+  dispatch(allProducts(data));
+  console.log(data, "data");
+
   const sixCategories = categories.slice(0, 6);
 
   return (
@@ -13,7 +21,10 @@ const Category = ({ categories }) => {
           <>
             <div className="w-80 rounded-md border-2 border-black text-center py-6">
               <h1 className="text-2xl font-bold mb-6">{category?.category}</h1>
-              <Link href={`/category/${category?.categoryId}`}>
+              <Link
+                href={`/pcBuilder/${category?.categoryId}`}
+                key={category?.categoryId}
+              >
                 <button className="w-1/2 rounded-md text-xl bg-sky-400 mx-auto p-2 border border-black justify-center text-center hover:bg-black hover:text-white">
                   Choose/Select
                 </button>

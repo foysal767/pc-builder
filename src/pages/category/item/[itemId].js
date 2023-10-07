@@ -80,7 +80,9 @@ const ProductDetails = ({ product }) => {
           </li>
         </ul>
         <div className="card-actions">
-          <button className="btn btn-primary">Add to Build</button>
+          <button className="btn bg-sky-500 p-4 text-white hover:text-black hover:border-2 hover:border-black">
+            Buy Now
+          </button>
         </div>
       </div>
     </div>

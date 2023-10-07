@@ -1,9 +1,13 @@
 /* eslint-disable react/jsx-no-undef */
-import Footer from "@/components/Layout/Footer";
-import Navbar from "@/components/Layout/Navbar";
+
+import { store, wrapper } from "@/redux/store";
 import "@/styles/globals.css";
+import { Provider } from "react-redux";
 
 export default function App({ Component, pageProps }) {
   const getLayout = Component.getLayout || ((page) => page);
-  return <>{getLayout(<Component {...pageProps} />)}</>;
+  return (
+    <Provider store={store}>{getLayout(<Component {...pageProps} />)}</Provider>
+  );
 }
+wrapper.withRedux(App);
