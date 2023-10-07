@@ -10,10 +10,14 @@ const CategoryProducts = ({ category }) => {
   const handleAddProduct = async (product) => {
     try {
       const result = await addProduct(product);
-      if (result.error) {
+
+      console.log(result.error, "status");
+      if (result.error.status === 409) {
         alert("This product is already added!");
+      } else if (result.error.status === 408) {
+        alert("This category product is already added!");
       } else {
-        alert("This product is added successfully!");
+        alert("Product added successfully!");
       }
     } catch (error) {
       console.error(error, "Error adding products!");
