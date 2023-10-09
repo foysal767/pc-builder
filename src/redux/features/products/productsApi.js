@@ -3,7 +3,8 @@ const { api } = require("@/redux/api/apiSlice");
 const booksApi = api.injectEndpoints({
   endpoints: (builder) => ({
     getAllProducts: builder.query({
-      query: () => "/products",
+      query: () => "/pcBuilderProducts",
+      providesTags: ["product"],
     }),
     addPcBuilderProduct: builder.mutation({
       query: (product) => ({
@@ -11,6 +12,7 @@ const booksApi = api.injectEndpoints({
         method: "POST",
         body: product,
       }),
+      invalidatesTags: ["product"],
     }),
   }),
 });
