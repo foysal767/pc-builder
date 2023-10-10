@@ -1,7 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import avater from "../../assets/images/avatar.png";
 import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
 const Navbar = () => {
+  const { data: session } = useSession();
+  console.log(session, "From navbar");
   return (
     <div className="navbar bg-sky-500">
       <div className="navbar-start">
@@ -52,15 +56,18 @@ const Navbar = () => {
                 </li>
               </ul>
             </li>
-            <li>
-              <a>Login</a>
-            </li>
-            <li>
-              <a>Sign Up</a>
-            </li>
-            <li>
-              <a>Log Out</a>
-            </li>
+
+            {session?.user ? (
+              <li>
+                <button onClick={() => signOut()} type="primary" danger>
+                  Log Out
+                </button>
+              </li>
+            ) : (
+              <li>
+                <Link href="/login">Login</Link>
+              </li>
+            )}
           </ul>
         </div>
         <Link href="/">
@@ -99,15 +106,17 @@ const Navbar = () => {
               </ul>
             </details>
           </li>
-          <li>
-            <a>Login</a>
-          </li>
-          <li>
-            <a>Sign Up</a>
-          </li>
-          <li>
-            <a>Log Out</a>
-          </li>
+          {session?.user ? (
+            <li>
+              <button onClick={() => signOut()} type="primary" danger>
+                Log Out
+              </button>
+            </li>
+          ) : (
+            <li>
+              <Link href="/login">Login</Link>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-end  flex justify-between">
@@ -119,12 +128,20 @@ const Navbar = () => {
         <div className="dropdown dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <Image
-                src={avater}
-                width={700}
-                alt="avatar"
-                className="flex m-50"
-              />
+              {!session?.user ? (
+                <Image
+                  src={avater}
+                  width={700}
+                  alt="avatar"
+                  className="flex m-50"
+                />
+              ) : (
+                <img
+                  src={session?.user?.image}
+                  alt="avater"
+                  className="w-full"
+                />
+              )}
             </div>
           </label>
           <ul
@@ -134,9 +151,17 @@ const Navbar = () => {
             <li>
               <a>Profile</a>
             </li>
-            <li>
-              <a>Logout</a>
-            </li>
+            {session?.user ? (
+              <li>
+                <button onClick={() => signOut()} type="primary" danger>
+                  Log Out
+                </button>
+              </li>
+            ) : (
+              <li>
+                <Link href="/login">Login</Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
