@@ -15,10 +15,8 @@ const CategoryProducts = ({ category }) => {
   const handleAddProduct = async (product) => {
     try {
       const userWithProduct = { product, user };
-      console.log(userWithProduct, "user with product");
       const result = await addProduct(userWithProduct);
 
-      console.log(result?.data?.acknowledged, "status");
       if (result?.data?.acknowledged === true) {
         toast.success("Product added successfully!");
       } else if (result.error.status === 409) {

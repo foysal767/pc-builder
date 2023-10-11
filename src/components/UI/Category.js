@@ -8,7 +8,6 @@ const Category = ({ categories }) => {
   const dispatch = useDispatch();
   const { data } = useGetAllProductsQuery(undefined);
   dispatch(allProducts(data));
-  console.log(data, "data");
 
   const sixCategories = categories.slice(0, 6);
 

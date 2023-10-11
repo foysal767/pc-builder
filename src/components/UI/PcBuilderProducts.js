@@ -6,7 +6,6 @@ import { toast } from "react-toastify";
 
 const PcBuilderProducts = ({ data }) => {
   const { data: session } = useSession();
-  console.log(data, "data from pc builder page with user");
   const handleComplete = () => {
     toast.success("PC build Completed Successfully!");
   };
