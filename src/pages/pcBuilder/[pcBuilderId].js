@@ -1,24 +1,30 @@
 import RootLayout from "@/components/Layout/RootLayout";
 import PcBuilderProducts from "@/components/UI/PcBuilderProducts";
 import { useAddPcBuilderProductMutation } from "@/redux/features/products/productsApi";
+import { useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { toast } from "react-toastify";
 
 const CategoryProducts = ({ category }) => {
+  const { data: session } = useSession();
+  const user = session?.user?.email;
   const { products } = category;
   const [addProduct] = useAddPcBuilderProductMutation();
   const handleAddProduct = async (product) => {
     try {
-      const result = await addProduct(product);
+      const userWithProduct = { product, user };
+      console.log(userWithProduct, "user with product");
+      const result = await addProduct(userWithProduct);
 
-      console.log(result.error, "status");
-      if (result.error.status === 409) {
-        alert("This product is already added!");
+      console.log(result?.data?.acknowledged, "status");
+      if (result?.data?.acknowledged === true) {
+        toast.success("Product added successfully!");
+      } else if (result.error.status === 409) {
+        toast.error("This product is already added!");
       } else if (result.error.status === 408) {
-        alert("This category product is already added!");
-      } else {
-        alert("Product added successfully!");
+        toast.error("This category product is already added!");
       }
     } catch (error) {
       console.error(error, "Error adding products!");

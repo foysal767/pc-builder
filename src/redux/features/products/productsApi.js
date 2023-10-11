@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+
 const { api } = require("@/redux/api/apiSlice");
 
 const booksApi = api.injectEndpoints({
