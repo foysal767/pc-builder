@@ -3,7 +3,20 @@ import Image from "next/image";
 import avater from "../../assets/images/avatar.png";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
+import { useDispatch } from "react-redux";
+import {
+  useGetAllCategoriesQuery,
+  useGetAllProductsQuery,
+} from "@/redux/features/products/productsApi";
+import {
+  allCategories,
+  allProducts,
+} from "@/redux/features/products/productsSlice";
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const { data } = useGetAllCategoriesQuery(undefined);
+  dispatch(allCategories(data));
+  const categories = data?.slice(0, 6);
   const { data: session } = useSession();
   return (
     <div className="navbar bg-sky-500">
@@ -31,28 +44,24 @@ const Navbar = () => {
           >
             <li>
               <a>Category</a>
-              <ul className="p-2 space-y-1">
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>CPU/Processor</a>
-                </li>
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>Motherboard</a>
-                </li>
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>RAM</a>
-                </li>
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>Power Supply Unit</a>
-                </li>
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>Storage Device</a>
-                </li>
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>Monitor</a>
-                </li>
-                <li className="bg-sky-400 rounded-md hover:bg-base-200">
-                  <a>Others</a>
-                </li>
+              <ul className="p-2 space-y-1 text-start">
+                {categories?.map((category) => (
+                  <>
+                    <li
+                      className="bg-sky-400 rounded-md hover:bg-sky-200 text-start"
+                      key={category?._id}
+                    >
+                      <Link
+                        href={`/category/${category?.categoryId}`}
+                        className="text-start"
+                      >
+                        <button className="text-start">
+                          {category?.category}
+                        </button>
+                      </Link>
+                    </li>
+                  </>
+                ))}
               </ul>
             </li>
 
@@ -80,28 +89,24 @@ const Navbar = () => {
           <li tabIndex={0}>
             <details>
               <summary>Category</summary>
-              <ul className="p-2 space-y-1 z-[1]">
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>CPU/Processor</a>
-                </li>
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>Motherboard</a>
-                </li>
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>RAM</a>
-                </li>
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>Power Supply Unit</a>
-                </li>
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>Storage Device</a>
-                </li>
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>Monitor</a>
-                </li>
-                <li className="bg-sky-400 rounded-md hover:bg-sky-200">
-                  <a>Others</a>
-                </li>
+              <ul className="p-2 space-y-1 z-[1] text-start">
+                {categories?.map((category) => (
+                  <>
+                    <li
+                      className="bg-sky-400 rounded-md hover:bg-sky-200 text-start"
+                      key={category?._id}
+                    >
+                      <Link
+                        href={`/category/${category?.categoryId}`}
+                        className="text-start"
+                      >
+                        <button className="text-start">
+                          {category?.category}
+                        </button>
+                      </Link>
+                    </li>
+                  </>
+                ))}
               </ul>
             </details>
           </li>

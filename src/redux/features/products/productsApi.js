@@ -8,6 +8,9 @@ const booksApi = api.injectEndpoints({
       query: () => "/pcBuilderProducts",
       providesTags: ["product"],
     }),
+    getAllCategories: builder.query({
+      query: () => "/categories",
+    }),
     addPcBuilderProduct: builder.mutation({
       query: (product) => ({
         url: "/product",
@@ -18,5 +21,8 @@ const booksApi = api.injectEndpoints({
     }),
   }),
 });
-export const { useGetAllProductsQuery, useAddPcBuilderProductMutation } =
-  booksApi;
+export const {
+  useGetAllProductsQuery,
+  useAddPcBuilderProductMutation,
+  useGetAllCategoriesQuery,
+} = booksApi;

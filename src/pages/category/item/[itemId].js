@@ -1,7 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import RootLayout from "@/components/Layout/RootLayout";
+import { toast } from "react-toastify";
 
 const ProductDetails = ({ product }) => {
+  const handleClick = () => {
+    toast.success("This product is Successfully buy!");
+  };
   return (
     <div className="card w-10/12 mx-auto bg-base-100 shadow-xl">
       <figure className="px-10 pt-10 w-8/12 mx-auto">
@@ -80,7 +84,12 @@ const ProductDetails = ({ product }) => {
           </li>
         </ul>
         <div className="card-actions">
-          <button className="btn bg-sky-500 p-4 text-white hover:text-black hover:border-2 hover:border-black">
+          <button
+            className="btn bg-sky-500 p-4 text-white hover:text-black hover:border-2 hover:border-black"
+            onClick={() => {
+              handleClick();
+            }}
+          >
             Buy Now
           </button>
         </div>
