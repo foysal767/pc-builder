@@ -17,19 +17,20 @@ const LoginPage = () => {
               className="btn bg-sky-500 font-semibold text-white border-2 border-black hover:border-black hover:text-black mb-4"
               onClick={() =>
                 signIn("google", {
-                  callbackUrl: "http://localhost:3000/",
+                  callbackUrl: "https://pc-builder-web-app-roan.vercel.app/",
                 })
               }
             >
               SignIn With Google
             </button>
           </form>
+
           <form method="post" action="/api/auth/signin/github">
             <button
               className="btn bg-sky-500 font-semibold text-white border-2 border-black hover:border-black hover:text-black mb-4"
               onClick={() =>
                 signIn("github", {
-                  callbackUrl: "http://localhost:3000/",
+                  callbackUrl: "https://pc-builder-web-app-roan.vercel.app/",
                 })
               }
             >

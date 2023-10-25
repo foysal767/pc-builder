@@ -34,18 +34,20 @@ const PcBuilderProducts = ({ data }) => {
                   <h2 className="card-title ms-4 my-6">
                     {product?.product?.name}
                   </h2>
-                  <p className="ms-4 my-6">
+                  <h1 className="ms-4 my-6">
                     Category: {product?.product?.category}
-                  </p>
-                  <p className="ms-4 my-6">Price: {product?.product?.price}</p>
-                  <p className="ms-4 my-6">
+                  </h1>
+                  <h1 className="ms-4 my-6">
+                    Price: {product?.product?.price}
+                  </h1>
+                  <h1 className="ms-4 my-6">
                     Status: {product?.product?.status}
-                  </p>
-                  <p className="ms-4 my-6">
+                  </h1>
+                  <h1 className="ms-4 my-6">
                     Rating: {product?.product?.rating}
-                  </p>
+                  </h1>
                   <div className="card-actions justify-center">
-                    <Link href={`category/item/${product?.id}`}>
+                    <Link href={`/category/item/${product?.id}`}>
                       <button className="btn bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 mb-4">
                         View Details
                       </button>

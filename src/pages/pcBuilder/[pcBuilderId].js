@@ -45,9 +45,9 @@ const CategoryProducts = ({ category }) => {
               </figure>
               <div className=" space-y-2">
                 <h2 className="card-title ms-4 my-6">{product?.name}</h2>
-                <p className="ms-4 my-6">Price: {product?.price}</p>
-                <p className="ms-4 my-6">Status: {product?.status}</p>
-                <p className="ms-4 my-6">Rating: {product?.rating}</p>
+                <h1 className="ms-4 my-6">Price: {product?.price}</h1>
+                <h1 className="ms-4 my-6">Status: {product?.status}</h1>
+                <h1 className="ms-4 my-6">Rating: {product?.rating}</h1>
                 <div className="card-actions justify-center">
                   <Link href={`item/${product?.id}`}>
                     <button className="btn bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 mb-4">
@@ -77,7 +77,9 @@ CategoryProducts.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch("http://localhost:5000/categories");
+  const res = await fetch(
+    "https://pc-builder-web-app-server.vercel.app/categories"
+  );
   const allCategories = await res.json();
   const categories = allCategories.slice(0, 6);
   const paths = categories?.map((category) => ({
@@ -89,7 +91,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const { params } = context;
   const singleRes = await fetch(
-    `http://localhost:5000/categories/${params?.pcBuilderId}`
+    `https://pc-builder-web-app-server.vercel.app/categories/${params?.pcBuilderId}`
   );
   const data = await singleRes.json();
   return {

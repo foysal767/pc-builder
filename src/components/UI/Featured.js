@@ -21,10 +21,10 @@ const Featured = ({ featured }) => {
             </figure>
             <div className=" space-y-2">
               <h2 className="card-title ms-4 my-6">{feature.name}</h2>
-              <p className="ms-4 my-6">Category: {feature.category}</p>
-              <p className="ms-4 my-6">Price: {feature.price}</p>
-              <p className="ms-4 my-6">Status: {feature.status}</p>
-              <p className="ms-4 my-6">Rating: {feature.rating}</p>
+              <h1 className="ms-4 my-6">Category: {feature.category}</h1>
+              <h1 className="ms-4 my-6">Price: {feature.price}</h1>
+              <h1 className="ms-4 my-6">Status: {feature.status}</h1>
+              <h1 className="ms-4 my-6">Rating: {feature.rating}</h1>
               <div className="card-actions justify-center">
                 <Link href={`category/item/${feature?.id}`}>
                   <button className="btn bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 mb-4">

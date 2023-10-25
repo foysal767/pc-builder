@@ -36,9 +36,9 @@ const ProductDetails = ({ product }) => {
           </li>
         </ul>
         <ul>
-          <p>
+          <h1>
             <strong>Key Features: </strong>
-          </p>
+          </h1>
           <li>
             <strong>Brand: </strong>
             {product?.keyFeatures?.Brand}
@@ -50,27 +50,27 @@ const ProductDetails = ({ product }) => {
           <li>
             <strong>Specification: </strong>
             {product?.keyFeatures?.Specification
-              ? product.keyFeatures?.Specification
+              ? product?.keyFeatures?.Specification
               : "N/A"}
           </li>
           <li>
             <strong>Type: </strong>
-            {product?.keyFeatures?.Type ? product.keyFeatures?.Type : "N/A"}
+            {product?.keyFeatures?.Type ? product?.keyFeatures?.Type : "N/A"}
           </li>
           <li>
             <strong>Port: </strong>
-            {product?.keyFeatures?.Port ? product.keyFeatures?.Port : "N/A"}
+            {product?.keyFeatures?.Port ? product?.keyFeatures?.Port : "N/A"}
           </li>
           <li>
             <strong>Voltage: </strong>
             {product?.keyFeatures?.Voltage
-              ? product.keyFeatures?.Voltage
+              ? product?.keyFeatures?.Voltage
               : "N/A"}
           </li>
           <li>
             <strong>Resolution: </strong>
             {product?.keyFeatures?.Resolution
-              ? product.keyFeatures?.Resolution
+              ? product?.keyFeatures?.Resolution
               : "N/A"}
           </li>
 
@@ -105,7 +105,9 @@ ProductDetails.getLayout = function getLayout(page) {
 };
 
 export const getStaticPaths = async () => {
-  const res = await fetch("http://localhost:5000/products");
+  const res = await fetch(
+    "https://pc-builder-web-app-server.vercel.app/products"
+  );
   const data = await res.json();
   const paths = data?.map((singleData) => ({
     params: { itemId: (singleData?.id).toString() },
@@ -114,7 +116,9 @@ export const getStaticPaths = async () => {
 };
 export const getStaticProps = async (context) => {
   const { params } = context;
-  const res = await fetch(`http://localhost:5000/products/${params?.itemId}`);
+  const res = await fetch(
+    `https://pc-builder-web-app-server.vercel.app/products/${params?.itemId}`
+  );
   const data = await res.json();
   return {
     props: {

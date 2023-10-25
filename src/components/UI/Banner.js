@@ -13,11 +13,11 @@ const Banner = () => {
         />
         <div>
           <h1 className="text-5xl font-bold">PCBuildCraft News!</h1>
-          <p className="py-6 pr-3">
+          <h1 className="py-6 pr-3">
             Design your dream PC effortlessly. Customize with precision, explore
             compatibility, and stay within budget. Your unique, high-performance
             rig starts here.
-          </p>
+          </h1>
           <Link href="">
             <button className="btn bg-black text-white hover:bg-white hover:text-black hover:border-black border-2 mb-4">
               Get Started

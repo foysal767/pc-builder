@@ -4,14 +4,8 @@ import avater from "../../assets/images/avatar.png";
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { useDispatch } from "react-redux";
-import {
-  useGetAllCategoriesQuery,
-  useGetAllProductsQuery,
-} from "@/redux/features/products/productsApi";
-import {
-  allCategories,
-  allProducts,
-} from "@/redux/features/products/productsSlice";
+import { useGetAllCategoriesQuery } from "@/redux/features/products/productsApi";
+import { allCategories } from "@/redux/features/products/productsSlice";
 const Navbar = () => {
   const dispatch = useDispatch();
   const { data } = useGetAllCategoriesQuery(undefined);
@@ -46,21 +40,19 @@ const Navbar = () => {
               <a>Category</a>
               <ul className="p-2 space-y-1 text-start">
                 {categories?.map((category) => (
-                  <>
-                    <li
-                      className="bg-sky-400 rounded-md hover:bg-sky-200 text-start"
-                      key={category?._id}
+                  <li
+                    className="bg-sky-400 rounded-md hover:bg-sky-200 text-start"
+                    key={category?._id}
+                  >
+                    <Link
+                      href={`/category/${category?.categoryId}`}
+                      className="text-start"
                     >
-                      <Link
-                        href={`/category/${category?.categoryId}`}
-                        className="text-start"
-                      >
-                        <button className="text-start">
-                          {category?.category}
-                        </button>
-                      </Link>
-                    </li>
-                  </>
+                      <button className="text-start">
+                        {category?.category}
+                      </button>
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </li>
@@ -91,21 +83,19 @@ const Navbar = () => {
               <summary>Category</summary>
               <ul className="p-2 space-y-1 z-[1] text-start">
                 {categories?.map((category) => (
-                  <>
-                    <li
-                      className="bg-sky-400 rounded-md hover:bg-sky-200 text-start"
-                      key={category?._id}
+                  <li
+                    className="bg-sky-400 rounded-md hover:bg-sky-200 text-start"
+                    key={category?._id}
+                  >
+                    <Link
+                      href={`/category/${category?.categoryId}`}
+                      className="text-start"
                     >
-                      <Link
-                        href={`/category/${category?.categoryId}`}
-                        className="text-start"
-                      >
-                        <button className="text-start">
-                          {category?.category}
-                        </button>
-                      </Link>
-                    </li>
-                  </>
+                      <button className="text-start">
+                        {category?.category}
+                      </button>
+                    </Link>
+                  </li>
                 ))}
               </ul>
             </details>
@@ -124,7 +114,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end  flex justify-between">
-        <Link href="/pcBuilder/pcBuilder">
+        <Link href="/pcBuilder">
           <button className="btn mx-auto bg-black text-white font-bold hover:bg-white hover:text-black hover:border-black border-2">
             PC BUILDER
           </button>
